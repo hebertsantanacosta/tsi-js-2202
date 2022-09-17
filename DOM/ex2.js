@@ -1,24 +1,43 @@
-
 let btnCalcular = document.getElementById('calcular');
 
-btnCalcular.addEventListener('click', function(event){
-    event.preventDefault();
-    console.log(event)
+btnCalcular.addEventListener('click', function(evento){
 
-    //Obter os valores de serviço e prazo
-    let Servico = document.getElementById('servico');
-    let Prazo = document.getElementById('prazo');
-
+    evento.preventDefault();
     
+    let serv = document.getElementById('servico');
+    let prazo = document.getElementById('prazo');
+    let res = document.getElementById('resultado')
+
+    /*recupera os dados da matriz*/
+    let preco = calculaPreco( serv.value, prazo.value);
+
+    res.innerText = ` O preco é ${preco}`;
+
+
+    console.log(serv.value);
+  
+    //ver dados do evento (click) no console
+
+    console.log(evento);
+
 });
 
+    function calculaPreco( servico, prazo){
 
-// btnCalcular.addEventListener('click', executar());
+        let tabela = [['$$$', '$$', '$'],
+                    ['$$$$', '$$$', '$$'],
+                    ['Não faz', 'Não faz', '$$$']];
 
-// function executar(event){
-//     console.log(event)
+            return tabela[servico][prazo];
+    }
 
-//     //Obter os valores de serviço e prazol
-// }
-// console.log(btnCalcular);
 
+
+
+/*
+function executa(){
+    alert('Clicou');
+}
+
+console.log(btnCalcular);
+*/
